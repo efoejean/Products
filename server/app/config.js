@@ -3,8 +3,13 @@
 import dotenv from "dotenv";
 
 dotenv.config();
-
+// check the env for a port, if you dont find use 300
 export default {
-  db: process.env.DB_CLIENT_URL,
+  db: {
+    clientURL: process.env.DB_CLIENT_URL,
+    collection: "products",
+    name: "products",
+  },
+
   port: process.env.PORT || 3000,
 };
