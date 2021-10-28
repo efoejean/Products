@@ -40,6 +40,15 @@ router.delete("/products", async (req, res) => {
   });
   res.json(deleteProduct);
 });
-// TODO: add.router.put().for.updating
+// add.router.put().for.updating
+
+router.put("/products", async (req, res) =>{
+  const updatedProduct = await collection.updateOne({_id: ObjectId(req.body.id)},
+  {$set: req.body.payload})
+
+res.json(updatedProduct);
+});
+
+
 
 export default router;
